@@ -1,0 +1,36 @@
+﻿@model _4DLogicRLM.Models.Province
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Province</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.ProvinceName)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.ProvinceName)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.ProvinceShortName)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.ProvinceShortName)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.KMLFile)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.KMLFile)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.ProvinceID">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

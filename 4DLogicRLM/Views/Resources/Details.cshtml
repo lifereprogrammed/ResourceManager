@@ -1,0 +1,48 @@
+﻿@model _4DLogicRLM.Models.Resources
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Resources</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.ResourceName)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.ResourceName)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.ResourceDescription)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.ResourceDescription)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.ResourceTypeID)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.ResourceTypeID)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.RescourceQty)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.RescourceQty)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.ResourceQtyTypeID)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.ResourceQtyTypeID)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.ResourceID">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

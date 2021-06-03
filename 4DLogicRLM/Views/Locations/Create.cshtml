@@ -1,0 +1,161 @@
+﻿@model _4DLogicRLM.ViewModels.LocationsVM
+@{
+    ViewData["Title"] = "Create";
+}
+
+
+<div class="content-lg container">
+    <div class="row margin-b-20">
+        <div class="col-sm-6">
+            <h2>Create New Location</h2>
+        </div>
+    </div>
+    <hr />
+    <div class="row">
+        <div class="col-sm-7 sm-margin-b-50">
+            <div class="margin-b-30">
+                <div class="">
+                    <form asp-action="Create">
+                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                        <div class="form-group">
+                            <label asp-for="LocationName" class="control-label">Title</label>
+                            <input asp-for="LocationName" class="form-control" />
+                            <span asp-validation-for="LocationName" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="LocationDescription" class="control-label">Description / Additional Information</label>
+                            <input asp-for="LocationDescription" class="form-control" />
+                            <span asp-validation-for="LocationDescription" class="text-danger"></span>
+                        </div>
+                        <hr />
+                        <div class="form-group">
+                            <label asp-for="CountryID" class="control-label">Country</label>
+                            <select id="CountrySelect" asp-for="CountryID" asp-items="ViewBag.Countries" class="form-control"></select>
+                            <span asp-validation-for="CountryID" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="ProvinceID" class="control-label">Province</label>
+                            <select id="ProvinceSelect" asp-for="ProvinceID" asp-items="ViewBag.Provinces" class="form-control"></select>
+                            <span asp-validation-for="ProvinceID" class="text-danger"></span>
+                        </div>
+                        <hr />
+                        <br />
+                        <br />
+                        <div class="form-group">
+                            <label class="control-label">Quarter / Legal Subdivision</label>
+                            <select class="form-control" id="LSD" asp-items="ViewBag.LegalSubdivision" asp-for="LegalSubdivision"></select>
+                            <label class="control-label">Section</label>
+                            <select class="form-control" id="section" asp-items="ViewBag.Section" asp-for="Section"></select>
+                            <label class="control-label">Township</label>
+                            <select class="form-control" id="township" asp-items="ViewBag.Township" asp-for="Township"></select>
+                            <label class="control-label">Range</label>
+                            <select class="form-control" id="range" asp-items="ViewBag.Range" asp-for="Range"></select>
+                            <label class="control-label">meridian</label>
+                            <select class="form-control" id="meridian" asp-items="ViewBag.meridian" asp-for="Meridian"></select>
+                            <a href="javascript:void(0)" onclick="convertLSD()" id="ConvertLSDButton">Convert</a>
+                        </div>
+                        <hr />
+                        <br />
+                        <br />
+                        <div class="form-group">
+                            <label asp-for="LatLon" class="control-label">Latitude, Longitude</label>
+                            <input id="LatLon" asp-for="LatLon" class="form-control" />
+                            <span asp-validation-for="LatLon" class="text-danger"></span>
+                        </div>
+                        <hr />
+                        <div class="form-group">
+                            <label asp-for="ResourceName" class="control-label">Resource</label>
+                            <input asp-for="ResourceName" class="form-control" />
+                            <span asp-validation-for="ResourceName" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="ResourceTypeID" class="control-label">Resource Type</label>
+                            <select class="form-control" asp-for="ResourceTypeID" asp-items="ViewBag.ResourceType"></select>
+                            <span asp-validation-for="ResourceTypeID" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="ResourceQty" class="control-label">Quantity</label>
+                            <input asp-for="ResourceQty" class="form-control" />
+                            <span asp-validation-for="ResourceQty" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="ResourceQtyTypeID" class="control-label"></label>
+                            <select class="form-control" asp-items="ViewBag.ResourceQuantityType" asp-for="ResourceQtyTypeID"></select>
+                            <span asp-validation-for="ResourceQtyTypeID" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="ExpirationDate" class="control-label">Expiration Date</label>
+                            <input asp-for="ExpirationDate" class="form-control" />
+                            <span asp-validation-for="ExpirationDate" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label" asp-for="LocationActive">Location Active (yes/no)<input type="checkbox" asp-for="LocationActive" class="form-control" checked style="height:20px !important;" /></label>
+                            
+                        </div>
+                        
+                        <div class="form-group">
+                            <input type="submit" value="Create" class="btn btn-default" />
+                        </div>
+                    </form>
+                </div>
+                <div>
+                    <a asp-action="Index">Back to List</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="~/vendor/jquery.min.js"></script>
+<script type="text/javascript">
+
+    $('#CountrySelect').change(function () {
+        var url = "@Url.Content("~/")" + "Locations/GetProvinceByCountry";
+        $.getJSON(url, { id: $("#CountrySelect").val() }, function (data) {
+            var items = '';
+            $("#ProvinceSelect").empty();
+            $.each(data, function (i, row) {
+                items += "<option value='" + row.value + "'>" + row.text + "</option>";
+            });
+            $("#ProvinceSelect").html(items);
+        });
+    });
+
+    function convertLSD() {
+        //alert("Convert Button Clicked");
+        var url = '@Url.Content("~/")' + "Locations/ConvertLSDtoLatLon";
+        
+
+        var dlsData = {
+            quarter: $("#quarter").val(),
+            legalSubdivision: $("#LSD").val(),
+            section: $("#section").val(),
+            township: $("#township").val(),
+            range: $("#range").val(),
+            meridian: $("#meridian").val()
+        }
+
+        console.log('Submitting conversion data...');
+        $.ajax({
+            tpye: 'POST',
+            url: url,
+            datatype: 'json',
+            contentType: 'application/json; charset=utf-8',
+            data: dlsData,
+            success: function (result) {
+                console.log('Converted data received: ');
+                console.log(result);
+                $("#LatLon").val(result);
+            }
+        });
+    }
+    //    $.getJSON(url, { id: $(ddlsource).val() }, function (data) {
+    //        $("#LatLon").empty();
+    //        $("#LatLon").val(data);
+    //    });
+    //}
+
+</script>
+
+
+
+

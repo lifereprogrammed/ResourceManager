@@ -1,0 +1,59 @@
+﻿@model IEnumerable<_4DLogicRLM.Models.Resources>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ResourceName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ResourceDescription)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ResourceTypeID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.RescourceQty)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ResourceQtyTypeID)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ResourceName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ResourceDescription)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ResourceTypeID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RescourceQty)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ResourceQtyTypeID)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.ResourceID">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.ResourceID">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.ResourceID">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

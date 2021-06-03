@@ -1,0 +1,65 @@
+﻿@model _4DLogicRLM.Models.Account
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h2>Create</h2>
+
+<h4>Account</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="AccountName" class="control-label"></label>
+                <input asp-for="AccountName" class="form-control" />
+                <span asp-validation-for="AccountName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="AccountUserID" class="control-label"></label>
+                <input asp-for="AccountUserID" class="form-control" />
+                <span asp-validation-for="AccountUserID" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SubscriptionID" class="control-label"></label>
+                <input asp-for="SubscriptionID" class="form-control" />
+                <span asp-validation-for="SubscriptionID" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SubscriptionPlanFee" class="control-label"></label>
+                <input asp-for="SubscriptionPlanFee" class="form-control" />
+                <span asp-validation-for="SubscriptionPlanFee" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SubscriptionUserCount" class="control-label"></label>
+                <input asp-for="SubscriptionUserCount" class="form-control" />
+                <span asp-validation-for="SubscriptionUserCount" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CompanyID" class="control-label"></label>
+                <input asp-for="CompanyID" class="form-control" />
+                <span asp-validation-for="CompanyID" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TrialPeriod" class="control-label"></label>
+                <input asp-for="TrialPeriod" class="form-control" />
+                <span asp-validation-for="TrialPeriod" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TrialExpiration" class="control-label"></label>
+                <input asp-for="TrialExpiration" class="form-control" />
+                <span asp-validation-for="TrialExpiration" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+

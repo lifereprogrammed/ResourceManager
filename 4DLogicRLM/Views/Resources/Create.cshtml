@@ -1,0 +1,50 @@
+﻿@model _4DLogicRLM.Models.Resources
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h2>Create</h2>
+
+<h4>Resources</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="ResourceName" class="control-label"></label>
+                <input asp-for="ResourceName" class="form-control" />
+                <span asp-validation-for="ResourceName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ResourceDescription" class="control-label"></label>
+                <input asp-for="ResourceDescription" class="form-control" />
+                <span asp-validation-for="ResourceDescription" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ResourceTypeID" class="control-label"></label>
+                <input asp-for="ResourceTypeID" class="form-control" />
+                <span asp-validation-for="ResourceTypeID" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="RescourceQty" class="control-label"></label>
+                <input asp-for="RescourceQty" class="form-control" />
+                <span asp-validation-for="RescourceQty" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ResourceQtyTypeID" class="control-label"></label>
+                <input asp-for="ResourceQtyTypeID" class="form-control" />
+                <span asp-validation-for="ResourceQtyTypeID" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+

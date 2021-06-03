@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+This file is used by the publish/package process of your Web project. You can customize the behavior of this process
+by editing this MSBuild file. In order to learn more about this please visit https://go.microsoft.com/fwlink/?LinkID=208121. 
+-->
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <TimeStampOfAssociatedLegacyPublishXmlFile />
+    <EncryptedPassword>AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAA+ajx8zcndE6GYtDRcjpGdAAAAAACAAAAAAAQZgAAAAEAACAAAABrc7lC/gGCIdnUtvX5hIRrApWMAiWUyK8uJxpAViMRJgAAAAAOgAAAAAIAACAAAACwD17CWgq2SyQZC8iOmZrUDy+4sKm1ptfUfSGpm2omnoAAAAAQFLsgmqWrQFCqUY+qwFo7zIvDQZjJmBgXnVmGxHjYA9eP4YpakULmHXU8wfIntrRje5O2Lyw+IL3Rv4Gw+6z7IT7wqeyz4vrrMLQJOTIxRbhvcU8ncNRvi6L/1H62pEObfa72UAXXH1xKz6aNqCiwccvtC6GRnEs1Ry9hQtXLLkAAAACW9/hnprJWUM0f7ZcgmBe05S61uUonJEJpfcQ7WI1OnGGW57CmAk3sREXNE133COmJI/v8EFJhs4aFilvkS7cr</EncryptedPassword>
+  </PropertyGroup>
+  <ItemGroup>
+    <DestinationConnectionStrings Include="DefaultConnection">
+      <Value>Data Source=tcp:4dlogicrlmdevdbserver.database.windows.net,1433%3bInitial Catalog=4DLogicRLMD_db%3bUser Id=4DLogicAdmin%404dlogicrlmdevdbserver%3bPassword=cmcQNd#con%40a</Value>
+    </DestinationConnectionStrings>
+    <DestinationConnectionStrings Include="_4DLogicRLMContextConnection">
+      <Value>Data Source=tcp:4dlogicrlmdevdbserver.database.windows.net,1433%3bInitial Catalog=4DLogicRLMD_db%3bUser Id=4DLogicAdmin%404dlogicrlmdevdbserver%3bPassword=cmcQNd#con%40a</Value>
+    </DestinationConnectionStrings>
+  </ItemGroup>
+</Project>

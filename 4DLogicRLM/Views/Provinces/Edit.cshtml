@@ -1,0 +1,41 @@
+﻿@model _4DLogicRLM.Models.Province
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h2>Edit</h2>
+
+<h4>Province</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="ProvinceID" />
+            <div class="form-group">
+                <label asp-for="ProvinceName" class="control-label"></label>
+                <input asp-for="ProvinceName" class="form-control" />
+                <span asp-validation-for="ProvinceName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ProvinceShortName" class="control-label"></label>
+                <input asp-for="ProvinceShortName" class="form-control" />
+                <span asp-validation-for="ProvinceShortName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="KMLFile" class="control-label"></label>
+                <input asp-for="KMLFile" class="form-control" />
+                <span asp-validation-for="KMLFile" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+

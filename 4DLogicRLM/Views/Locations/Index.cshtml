@@ -1,0 +1,89 @@
+﻿@model IEnumerable<_4DLogicRLM.ViewModels.LocationsVM>
+
+@{
+    ViewData["Title"] = "Locations";
+}
+
+
+
+
+
+<div class="content-lg container">
+    <div class="row margin-b-20">
+        <div class="col-sm-6">
+            <h2>Locations</h2>
+            <a asp-action="Create">Add New Location</a>
+        </div>
+    </div>
+    <div class="row">
+        <div class="sm-margin-b-50">
+            <div class="margin-b-30">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Expiration Date</th>
+                            <th>
+                                Location
+                            </th>
+                            <th>
+                                Description
+                            </th>
+                            <th>
+                                Resource
+                            </th>
+                            <th>Resource Type</th>
+                            <th>Quantity</th>
+                            <th>
+                                DLS / LSD / ATS
+                            </th>
+                            <th>
+                                Latitude / Longitude
+                            </th>
+                            <th>
+                                Country
+                            </th>
+                            <th>
+                                Province
+                            </th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>@Html.DisplayFor(modelItem => item.ExpirationDate)</td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.LocationName)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.LocationDescription)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.ResourceName)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.ResourceTypeName)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.ResourceQty) @Html.DisplayFor(modelItem => item.ResourceQType)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.LocationString)
+                                </td>
+                                <td>@Html.DisplayFor(modelItem => item.LatLon)</td>
+                                <td>@Html.DisplayFor(modelItem => item.CountryName)</td>
+                                <td>@Html.DisplayFor(modelItem => item.ProvinceName)</td>
+                                <td>
+                                    <a asp-action="Edit" asp-route-id="@item.LocationID">Edit</a> |
+                                    <a asp-action="Details" asp-route-id="@item.LocationID">Details</a> |
+                                    <a asp-action="Delete" asp-route-id="@item.LocationID">Delete</a>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

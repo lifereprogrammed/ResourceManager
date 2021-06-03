@@ -1,0 +1,77 @@
+﻿@model IEnumerable<_4DLogicRLM.Models.Account>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.AccountName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AccountUserID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SubscriptionID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SubscriptionPlanFee)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SubscriptionUserCount)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CompanyID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TrialPeriod)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TrialExpiration)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.AccountName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AccountUserID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SubscriptionID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SubscriptionPlanFee)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SubscriptionUserCount)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CompanyID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TrialPeriod)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TrialExpiration)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.AccountID">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.AccountID">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.AccountID">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
